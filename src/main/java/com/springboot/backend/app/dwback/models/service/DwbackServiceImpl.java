@@ -26,5 +26,15 @@ public class DwbackServiceImpl implements DwbackService {
 	public Dwback findById(Long id) {
 		return dao.findById(id).orElse(null);
 	}
+	
+	@Override
+	public void deleteById(Long id) {
+		dao.deleteById(id);
+	}
+	
+	@Override
+	public Dwback create(Dwback dwback) {
+		return dao.save(dwback);
+	}
 
 }

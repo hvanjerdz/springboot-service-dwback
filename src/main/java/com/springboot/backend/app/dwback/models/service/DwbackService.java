@@ -9,5 +9,9 @@ public interface DwbackService {
 	public List<Dwback> findAll();
 	
 	public Dwback findById(Long id);
-
+	
+	public void deleteById(Long id);
+	
+	public Dwback create(Dwback dwback);
+	
 }
