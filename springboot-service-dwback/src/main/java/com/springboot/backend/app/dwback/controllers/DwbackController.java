@@ -1,9 +1,10 @@
 package com.springboot.backend.app.dwback.controllers;
 
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,10 +24,16 @@ public class DwbackController {
 	@Autowired
 	private DwbackService backService;
 	
+	@Value("${server.port}")
+	private Integer port;
+	
 	@GetMapping("/list")
 	public List<Dwback> list(){
 		
-		return backService.findAll();
+		return backService.findAll().stream().map(cur -> {
+			cur.setPort(port);
+			return cur;
+		}).collect(Collectors.toList());
 	}
 	
 	@GetMapping("/dwback/{id}")

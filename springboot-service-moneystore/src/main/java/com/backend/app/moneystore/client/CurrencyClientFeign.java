@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.backend.app.moneystore.models.Dwback;
 
 
-@FeignClient(name = "service-dwback", url = "localhost:8002")
+@FeignClient(name = "service-dwback")
 public interface CurrencyClientFeign {
 	
 	@GetMapping("/list")

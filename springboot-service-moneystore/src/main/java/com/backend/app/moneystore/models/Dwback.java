@@ -9,7 +9,7 @@ public class Dwback {
 	
 	private String country;
 	
-	
+	private Integer port;
 	
 	public Long getId() {
 		return id;
@@ -28,5 +28,11 @@ public class Dwback {
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public Integer getPort() {
+		return port;
+	}
+	public void setPort(Integer port) {
+		this.port = port;
 	}
 }

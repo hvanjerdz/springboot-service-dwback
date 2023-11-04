@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "currencies")
@@ -21,6 +22,8 @@ public class Dwback implements Serializable{
 	private String currency;
 	private String country;
 
+	@Transient
+	private Integer port;
 	
 	public Long getId() {
 		return id;
@@ -39,6 +42,12 @@ public class Dwback implements Serializable{
 	}
 	public void setCountry(String country) {
 		this.country = country;
+	}
+	public Integer getPort() {
+		return port;
+	}
+	public void setPort(Integer port) {
+		this.port = port;
 	}
 
 }
