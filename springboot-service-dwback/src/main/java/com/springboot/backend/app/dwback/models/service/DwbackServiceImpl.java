@@ -28,13 +28,21 @@ public class DwbackServiceImpl implements DwbackService {
 	}
 	
 	@Override
+	@Transactional(readOnly = true)
 	public void deleteById(Long id) {
 		dao.deleteById(id);
 	}
-	
+
 	@Override
-	public Dwback create(Dwback dwback) {
-		return dao.save(dwback);
+	@Transactional(readOnly = true)
+	public Dwback create(Dwback instance) {
+		return dao.save(instance);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public boolean existsById(Long id) {
+		return dao.existsById(id);
 	}
 
 }

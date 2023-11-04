@@ -12,6 +12,8 @@ public interface DwbackService {
 	
 	public void deleteById(Long id);
 	
-	public Dwback create(Dwback dwback);
+	public Dwback create(Dwback instance);
+	
+	public boolean existsById(Long id);
 	
 }
