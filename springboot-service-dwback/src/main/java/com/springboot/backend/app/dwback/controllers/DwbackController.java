@@ -39,6 +39,11 @@ public class DwbackController {
 	@GetMapping("/dwback/{id}")
 	public Dwback detail(@PathVariable Long id) {
 		
+		try	{
+			Thread.sleep(2000L);
+		}catch(InterruptedException e)	{
+			e.printStackTrace();
+		}
 //		boolean bl = false;
 //		if(!bl) {
 //			throw new RuntimeException("No se pudo obtener el detalle de dicha moneda");
