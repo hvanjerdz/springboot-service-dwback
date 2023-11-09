@@ -38,6 +38,11 @@ public class DwbackController {
 	
 	@GetMapping("/dwback/{id}")
 	public Dwback detail(@PathVariable Long id) {
+		
+//		boolean bl = false;
+//		if(!bl) {
+//			throw new RuntimeException("No se pudo obtener el detalle de dicha moneda");
+//		}
 		return backService.findById(id);
 	}
 	

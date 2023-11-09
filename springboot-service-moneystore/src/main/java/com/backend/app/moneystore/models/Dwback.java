@@ -11,6 +11,11 @@ public class Dwback {
 	
 	private Integer port;
 	
+	public Dwback(Long id, String currency, String country)	{
+		this.id = id;
+		this.currency = currency;
+		this.country = country;
+	}
 	public Long getId() {
 		return id;
 	}
