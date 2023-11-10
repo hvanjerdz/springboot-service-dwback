@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,6 +23,9 @@ import com.springboot.backend.app.dwback.models.service.DwbackService;
 public class DwbackController {
 	
 	@Autowired
+	private Environment env;
+	
+	@Autowired
 	private DwbackService backService;
 	
 	@Value("${server.port}")
@@ -31,7 +35,7 @@ public class DwbackController {
 	public List<Dwback> list(){
 		
 		return backService.findAll().stream().map(cur -> {
-			cur.setPort(port);
+			cur.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 			return cur;
 		}).collect(Collectors.toList());
 	}
@@ -39,11 +43,11 @@ public class DwbackController {
 	@GetMapping("/dwback/{id}")
 	public Dwback detail(@PathVariable Long id) {
 		
-		try	{
-			Thread.sleep(2000L);
-		}catch(InterruptedException e)	{
-			e.printStackTrace();
-		}
+//		try	{
+//			Thread.sleep(2000L);
+//		}catch(InterruptedException e)	{
+//			e.printStackTrace();
+//		}
 //		boolean bl = false;
 //		if(!bl) {
 //			throw new RuntimeException("No se pudo obtener el detalle de dicha moneda");
