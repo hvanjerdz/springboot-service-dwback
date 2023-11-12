@@ -26,13 +26,13 @@ public class TimePostFilter extends ZuulFilter{
 		RequestContext ctx = RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
 		
-		log.info("Entrando a filtro post");
+		log.info("Entrando a filtro post (Time)");
 		
 		Long tiempoInicio = (Long) request.getAttribute("tiempoInicio");
 		Long tiempoFinal = System.currentTimeMillis();
 		Long tiempoTranscurrido = tiempoFinal - tiempoInicio;
-		log.info(String.format("Tiempo transcurrido en segundos %s seg", tiempoTranscurrido.doubleValue()/1000));
-		log.info(String.format("Tiempo transcurrido en milisegundos %s ms", tiempoTranscurrido));
+		log.info(String.format("Tiempo transcurrido en segundos: %s seg", tiempoTranscurrido.doubleValue()/1000));
+		log.info(String.format("Tiempo transcurrido en milisegundos: %s ms", tiempoTranscurrido));
 
 		return null;
 	}
